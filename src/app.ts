@@ -2,6 +2,7 @@
 import express, { Request, Response } from "express";
 import { orderRoutes } from "./modules/order.routes.js"; 
 import chalk from "chalk";
+import router from "./router/index.js";
 
 
 const app = express();
@@ -28,7 +29,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 
-app.use("/api/orders", orderRoutes);
+app.use("/api/v1", router);
 
 
 app.use("*", (req: Request, res: Response) => {
